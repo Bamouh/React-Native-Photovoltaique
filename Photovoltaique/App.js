@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import {  createStackNavigator, createDrawerNavigator, Header, DrawerActions, DrawerItems } from 'react-navigation';
 import { COLOR } from './constants.js'
+import * as TextData from "./text/Text.json";
 
 import HomeScreen from './screens/HomeScreen.js';
 import Home2Screen from './screens/Home2Screen.js';
@@ -27,10 +28,24 @@ const DrawerStack = createDrawerNavigator(//Les ecrans accessibles dans le menu 
     )
   }
 );
-
+/*
+const NavigationStack = createStackNavigator(//Les ecrans accessibles dans le menu glissant
+  {
+    Acceuil: { screen: Home2Screen },
+    Main : { screen: MainScreen },
+    Ap2 : { screen: Ap2Screen },
+    Sf2 : { screen: Sf2Screen }
+  },
+  {
+    initialRouteName : "Acceuil",
+    headerMode : 'none'
+  }
+);
+*/
 const MainNavigator = createStackNavigator(
   {
     DrawerStack: { screen: DrawerStack }
+    //NavigationStack: { screen: NavigationStack }
   },
   {
     navigationOptions : ({navigation}) => ({
@@ -85,6 +100,8 @@ export default class App extends Component{
     global.apstate = true;//Etat initial du composant "Ap" de l'écran MainScreen
     global.sfstate = false;
     global.gesstate = false;
+    //global.language = 'arabic';
+    global.languageSource = TextData.french;
   }
   render(){
     {global.lg1 < global.lg2 ? global.deviceLenght=lg1 : global.deviceLenght=lg2}; // Pour determiner la taille des éléments et du texte de l'application en fonction de la taille de l'écran

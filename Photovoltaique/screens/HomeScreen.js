@@ -4,11 +4,12 @@ import { View, Text, StyleSheet, Image, Button, Dimensions, ActivityIndicator, S
 import { COLOR } from '../constants.js'
 import Footer from '../elements/Footer.js';
 import CustomButton from '../elements/CustomButton.js';
+import * as TextData from "../text/Text.json";
 
 export default class HomeScreen extends Component{
   constructor(props){
     super(props);
-    this.state = { fourSecondsHavePassed : false };
+    this.state = { fourSecondsHavePassed : false, texte : global.languageSource.screen1, uniqueValue: 1 };
   }
   componentDidMount(){
     var timeout = setTimeout(() => {
@@ -19,7 +20,9 @@ export default class HomeScreen extends Component{
     },4000);
   }
   componentWillUnmount(){
-    clearTimeout(timeout);
+    try{
+      clearTimeout(timeout);
+    }catch(error){}
   }
   render() {
     let textSize = 0.041*global.deviceLenght;//Taille du texte dynamique
@@ -27,10 +30,10 @@ export default class HomeScreen extends Component{
       <View style={{flex:1,flexDirection:'column',justifyContent: 'center'}}>
         <ScrollView contentContainerStyle={styles.styleglobal}>
             <Image source ={require('../img/acceuil/sun.png')} style={{height: (global.deviceLenght/2)+10, width: global.deviceLenght/2}}/>
-            <Text style={{color:COLOR,fontWeight:'bold',fontSize:2*textSize}}> Aire Photovoltaïque </Text>
-            {this.state.fourSecondsHavePassed ? <CustomButton screenTitle='Home3' navigation={this.props.navigation} fontSize={textSize} buttonText='Continuer'/> : <ActivityIndicator color={COLOR} size="large" />}
+            <Text style={{color:COLOR,fontWeight:'bold',fontSize:2*textSize}}> {global.languageSource.screen1} </Text>
+            {this.state.fourSecondsHavePassed ? <CustomButton screenTitle='Home3' navigation={this.props.navigation} fontSize={textSize} buttonText={global.languageSource.boutons.commencer}/> : <ActivityIndicator color={COLOR} size="large" />}
         </ScrollView>
-        <Footer />
+        <Footer screenTitle='Home' navigation={this.props.navigation} refresh={this.state.uniqueValue}/>
       </View>
     );
   }

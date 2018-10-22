@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { COLOR } from '../constants.js'
+import * as TextData from "../text/Text.json";
 
 export default class Footer extends Component{
   render(){

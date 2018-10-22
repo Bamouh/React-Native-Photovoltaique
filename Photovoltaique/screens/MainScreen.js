@@ -8,6 +8,7 @@ import { ADRESSE_SERVEUR } from '../constants.js'
 import { DUREE_VALEUR_STOCKEE } from '../constants.js'
 import { NOMBRE_DE_JOURS } from '../constants.js'
 import { COLOR } from '../constants.js'
+import * as TextData from "../text/Text.json";
 
 export default class MainScreen extends Component{
   static navigationOptions = {
@@ -20,7 +21,8 @@ export default class MainScreen extends Component{
       actifap : global.apstate,//Etat de l'écran "Ap" (Description et Caractéristiques)
       //Quand l'écran Ap est actif (actifap : true), il s'affiche, les deux autres s'affacent
       actifsf : global.sfstate,//Etat de l'écran "Sf" (Simulation de fonctionnement)
-      actifges : global.gesstate//Etat de l'écran "Ges" (Gaz a effet de serre)
+      actifges : global.gesstate,//Etat de l'écran "Ges" (Gaz a effet de serre)
+      uniqueValue : 1
     }
   }
 
@@ -59,16 +61,16 @@ export default class MainScreen extends Component{
       <ScrollView>
         <View style={{flex:1,flexDirection:'column',justifyContent:'flex-start',alignItems:'center'}}>
           <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'flex-start'}}>
-              <Bouton onPress={this.changeApState} activesrce={require('../img/techno.png')} inactivesrce={require('../img/technoinactive.png')} texte1="Aire" texte2="Photovoltaïque" fontSize= {textSize} actif={this.state.actifap}/>
-              <Bouton onPress={this.changeSfState} activesrce={require('../img/3d.png')} inactivesrce={require('../img/3dinactive.png')} texte1="Simulation" texte2="de fonctionnement" fontSize= {textSize} actif={this.state.actifsf}/>
-              <Bouton onPress={this.changeGesState} activesrce={require('../img/ges.png')} inactivesrce={require('../img/gesinactive.png')} texte1="GES" texte2="Evités" fontSize= {textSize} actif={this.state.actifges}/>
+              <Bouton onPress={this.changeApState} activesrce={require('../img/techno.png')} inactivesrce={require('../img/technoinactive.png')} texte1={global.languageSource.boutons.ap1} texte2={global.languageSource.boutons.ap2} fontSize= {textSize} actif={this.state.actifap}/>
+              <Bouton onPress={this.changeSfState} activesrce={require('../img/3d.png')} inactivesrce={require('../img/3dinactive.png')} texte1={global.languageSource.boutons.sf1} texte2={global.languageSource.boutons.sf2} fontSize= {textSize} actif={this.state.actifsf}/>
+              <Bouton onPress={this.changeGesState} activesrce={require('../img/ges.png')} inactivesrce={require('../img/gesinactive.png')} texte1={global.languageSource.boutons.ges1} texte2={global.languageSource.boutons.ges2} fontSize= {textSize} actif={this.state.actifges}/>
           </View>
           {this.state.actifap ? <ApScreen navigation={this.props.navigation} fontSize= {textSize}/> : null}
           {this.state.actifsf ? <SfScreen navigation={this.props.navigation} fontSize= {textSize}/> : null}
           {this.state.actifges ? <GesScreen navigation={this.props.navigation} fontSize= {textSize}/> : null}
         </View>
       </ScrollView>
-      <Footer />
+      <Footer screenTitle='Main' navigation={this.props.navigation} refresh={this.state.uniqueValue}/>
     </View>
     );
   }
@@ -96,13 +98,13 @@ class ApScreen extends Component{//L'écran "Ap" dont le bouton 'Découvrir' red
     return(
       <View style={{flex:1,flexDirection:'column',justifyContent:'flex-start',alignItems:'center'}}>
         <View style={{flex:-1,flexDirection:'row',justifyContent:'space-evenly',alignItems:'center',maxHeight: global.deviceLenght/2}}>
-          <Image source ={require('../img/acceuil/pan1.jpg')} style={{marginHorizontal:5, maxHeight: global.deviceLenght/3, maxWidth: global.deviceLenght/2}} />
+          <Image source ={require('../img/acceuil/pan21.png')} style={{marginHorizontal:5, maxHeight: global.deviceLenght/3, maxWidth: global.deviceLenght/2}} />
           <View style={{width:0,flex:1}}>
-            <Text style={{color:COLOR,fontSize: this.props.fontSize+2,fontWeight:'bold',flexWrap:'wrap', paddingHorizontal:5}}> Le centre d'Education a l'Environnement est équipé d'une aire Photovoltaïque ou bien d'une ferme solaire.</Text>
+            <Text style={{color:COLOR,fontSize: this.props.fontSize+2,fontWeight:'bold',flexWrap:'wrap', paddingHorizontal:5}}>{global.languageSource.apScreen.text1}</Text>
           </View>
         </View>
-        <Text style={{color:COLOR,fontSize: (5/4)*this.props.fontSize,fontWeight:'bold',margin:10, textAlign:'center'}}> Cette ferme a pour objectif de vous montrer le principe de fonctionnement de cette station, ainsi que les avantages d''utilisation des énergies propres.</Text>
-        <CustomButton screenTitle='Ap2' navigation={this.props.navigation} fontSize={this.props.fontSize} buttonText='Découvrir'/>
+        <Text style={{color:COLOR,fontSize: (5/4)*this.props.fontSize,fontWeight:'bold',margin:10, textAlign:'center'}}> {global.languageSource.apScreen.text2} </Text>
+        <CustomButton screenTitle='Ap2' navigation={this.props.navigation} fontSize={this.props.fontSize} buttonText={global.languageSource.boutons.decouvrir}/>
       </View>
     );
   }
@@ -113,15 +115,15 @@ class SfScreen extends Component{//L'écran "Sf" dont le bouton 'Découvrir' red
     return(
       <View style={{flex:1,flexDirection:'column',justifyContent:'flex-start',alignItems:'center'}}>
         <Text style={{fontWeight: 'bold',fontSize: (5/4)*this.props.fontSize,color:COLOR,margin:10}}>
-        On distingue généralement deux types de panneaux solaires:{"\n"}
-        {"\t"}- Les panneaux solaires Thermiques : Ils transforment la lumière en chaleur.{"\n"}
-        {"\t"}- Les panneaux solaires Photovoltaïques : Ils transforment la lumière en électricité.{"\n"}
-        Trois éléments sont indispensables pour assurer un bon rendement:{"\n"}
-        {"\t"}- Type de la cellule photovoltaïque utilisée.{"\n"}
-        {"\t"}- Ensoleillement et le positionnement du panneau.{"\n"}
-        {"\t"}- Maintenance régulière.{"\n"}
+        {global.languageSource.sfScreen.text1}{"\n"}
+        {"\t"}{global.languageSource.sfScreen.text2}{"\n"}
+        {"\t"}{global.languageSource.sfScreen.text3}{"\n"}
+        {global.languageSource.sfScreen.text4}{"\n"}
+        {"\t"}{global.languageSource.sfScreen.text5}{"\n"}
+        {"\t"}{global.languageSource.sfScreen.text6}{"\n"}
+        {"\t"}{global.languageSource.sfScreen.text7}{"\n"}
         </Text>
-        <CustomButton screenTitle='Sf2' navigation={this.props.navigation} fontSize={this.props.fontSize} buttonText='Découvrir'/>
+        <CustomButton screenTitle='Sf2' navigation={this.props.navigation} fontSize={this.props.fontSize} buttonText={global.languageSource.boutons.decouvrir}/>
       </View>
     );
   }
@@ -230,7 +232,9 @@ class GesScreen extends Component{//L'écran "Ges"
         this.storeItem('lastModifDate',(new Date()).getTime());
       })
       .catch((error) => {//Si erreur de connexion au serveur ou pas d'internet
-        Alert.alert('Erreur de connexion','Recherche des valeurs les plus récentes...');
+        let mess1 = global.languageSource.gesScreen.messageError1
+        let mess2 = global.languageSource.gesScreen.messageError2
+        Alert.alert(mess1,mess2);
         this.clearStuff();
         this.changeStuff();
       })
@@ -242,12 +246,12 @@ class GesScreen extends Component{//L'écran "Ges"
   render(){
     return(
       <View style={{flex:1,flexDirection:'column',justifyContent:'flex-start',alignItems:'center'}}>
-        <Text style={{fontWeight: 'bold', textAlign:'center', fontSize: (3/2)*this.props.fontSize, color:COLOR,margin:2,paddingHorizontal:5}}>Les GES évités correspondent au recours aux EnR (En % de réduction):</Text>
+        <Text style={{fontWeight: 'bold', textAlign:'center', fontSize: (3/2)*this.props.fontSize, color:COLOR,margin:2,paddingHorizontal:5}}>{global.languageSource.gesScreen.text0}</Text>
         <Text style={{fontWeight: 'bold', textAlign:'center', fontSize: this.props.fontSize+60, color:COLOR}}>
           {this.state.pourcent}%{"\n"}
           <Text style={{fontSize: (3/2)*this.props.fontSize,textAlign:'center'}}>
-            {this.state.emissionGes} {this.state.unite} éq. CO2 évités{"\n"}
-            Dernière mise a jour :{"\n"}
+            {this.state.emissionGes} {this.state.unite} {global.languageSource.gesScreen.text1}{"\n"}
+            {global.languageSource.gesScreen.text2}{"\n"}
             {this.calculDate(this.state.lastModifDate)} (UTC)
           </Text>
         </Text>

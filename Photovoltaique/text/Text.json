@@ -1,0 +1,106 @@
+{
+	"french": {
+		"header": "Aire Photovoltaïque",
+		"screen1": "Aire Photovoltaïque",
+    "screen2Title" : "Aire Photovoltaïque :",
+    "screen2P1" : "Engagé dans une politique de réduction de réduction des émissions de gaz a effet de serre, le Centre d'Education a l'Environnement entend revoir au plus vite la composition de son mix électrique et promouvoir l''ensemble des énergies décarbonées.",
+    "screen2P2" : "Vous êtes dans l'aire de stationnement",
+    "boutons" : {
+      "commencer" : "Commencer",
+      "decouvrir" : "Découvrir",
+      "continuer" : "Continuer",
+      "ap1" : "Aire",
+      "ap2" : "Photovoltaïque",
+      "sf1" : "Simulation",
+      "sf2" : "de fonctionnement",
+      "ges1" : "GES",
+      "ges2" : "Evités"
+    },
+    "apScreen" : {
+      "text1" : "Le centre d'Education a l'Environnement est équipé d'une aire Photovoltaïque ou bien d'une ferme solaire.",
+      "text2" : "Cette ferme a pour objectif de vous montrer le principe de fonctionnement de cette station, ainsi que les avantages d'utilisation des énergies propres."
+    },
+    "ap2Screen" : {
+      "titre" : "Description & Caractéristiques",
+      "description" : "-La cellule Photovoltaïque utilisée est de type 'Monocristallin' , le rendement est très bon",
+      "test" : "Aux conditions de test standards",
+      "cellules" : "Cellules",
+      "puissance" : "Puissance Maximale",
+      "valeurPuissance" : "300W",
+      "tension" : "Tension Maximale 31,7V",
+      "courant" : "Courant Maximal 9.47A",
+      "rendement" : "Rendement"
+    },
+    "sfScreen" : {
+      "text1" : "On distingue généralement deux types de panneaux solaires:",
+      "text2" : "- Les panneaux solaires Thermiques : Ils transforment la lumière en chaleur.",
+      "text3" : "- Les panneaux solaires Photovoltaïques : Ils transforment la lumière en électricité.",
+      "text4" : "Trois éléments sont indispensables pour assurer un bon rendement:",
+      "text5" : "- Type de la cellule photovoltaïque utilisée.",
+      "text6" : "- Ensoleillement et le positionnement du panneau.",
+      "text7" : "- Maintenance régulière."
+    },
+    "sf2Screen" : {
+      "titre" : "Simulation de fonctionnement"
+    },
+    "gesScreen" : {
+      "text0" : "Les GES évités correspondent au recours aux EnR (En % de réduction):",
+      "text1" : "éq. CO2 évités",
+      "text2" : "Dernière mise a jour :",
+      "messageError1" : "Erreur de connexion",
+      "messageError2" : "Recherche des valeurs les plus récentes..."
+    }
+	},
+	"arabic": {
+		"header": "منطقة فوتوفولتية",
+		"screen1": "منطقة فوتوفولتية",
+    "screen2Title" : "منطقة الضوئية:",
+    "screen2P1" : "ملتزمًا بخفض انبعاثات غازات الاحتباس الحراري ، يعتزم مركز التعليم البيئي مراجعة تركيبة مزيج الكهرباء في أقرب وقت ممكن وتعزيز جميع الطاقات الخالية من الكربون.",
+    "screen2P2" : "أنت في منطقة وقوف السيارات",
+    "boutons" : {
+      "commencer" : "بداية",
+      "decouvrir" : "اكتشف",
+      "continuer" : "استمر",
+      "ap1" : "منطقة",
+      "ap2" : "فوتوفولتية",
+      "sf1" : "محاكاة",
+      "sf2" : "العملية",
+      "ges1" : "انبعاثات",
+      "ges2" : "تجنب"
+    },
+    "apScreen" : {
+      "text1" : "تم تجهيز مركز التعليم البيئي بمنطقة فوتوضوئية أو مزرعة شمسية.",
+      "text2" : "تهدف هذه المزرعة إلى إظهار مبدأ تشغيل هذه المحطة ، بالإضافة إلى فوائد استخدام الطاقات النظيفة."
+    },
+    "ap2Screen" : {
+      "titre" : "الوصف والميزات",
+      "description" : "-خلية الخلايا الضوئية المستخدمة من النوع أحادي البلورية ، العائد جيد جداً",
+      "test" : "في ظروف الاختبار القياسية",
+      "cellules" : "خلايا",
+      "puissance" : "أقصى قوة",
+      "valeurPuissance" : "300W",
+      "tension" : "Vالجهد الأقصى 31.7",
+      "courant" : "Aالحد الأقصى الحالي 9.47",
+      "rendement" : "المردود"
+    },
+    "sfScreen" : {
+      "text1" : "هناك عموما نوعان من الألواح الشمسية:",
+      "text2" : "- الألواح الشمسية الحرارية: إنها تحول الضوء إلى حرارة.",
+      "text3" : "- الألواح الشمسية الكهروضوئية: إنها تحول الضوء إلى كهرباء.",
+      "text4" : "ثلاثة عناصر ضرورية لضمان عائد جيد:",
+      "text5" : "- نوع الخلايا الكهروضوئية المستخدمة.",
+      "text6" : "- أشعة الشمس وتحديد المواقع من لوحة.",
+      "text7" : "- صيانة دورية."
+    },
+    "sf2Screen" : {
+      "titre" : "محاكاة العملية"
+    },
+    "gesScreen" : {
+      "text0" : "تتجنب غازات الدفيئة استخدام الطاقة المتجددة (بخفض٪):",
+      "text1" : "مكافئ. تجنب CO2",
+      "text2" : "اخر تحديث :",
+      "messageError1" : "خطأ في الاتصال",
+      "messageError2" : "ا عثور على أحدث القيم"
+    }
+	}
+}
